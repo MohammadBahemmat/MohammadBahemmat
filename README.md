@@ -43,34 +43,33 @@
 
 ---
 
-### 🚀 چیزایی که ساختم
+### 🚀 پروژه‌های شاخص
 
 <table>
 <tr>
 <td width="50%">
 <h3 align="center">🌀 V2ray Collector</h3>
 <p align="center">
-جمع‌آوری خودکار کانفیگ‌های V2Ray از <b>گیتهاب + تلگرام</b> — بدون نیاز به API، ربات یا شماره.
-<br>هر ۱۵ دقیقه یک‌بار آپدیت میشه.
+جمع‌آوری خودکار کانفیگ‌های V2Ray از <b>گیتهاب + تلگرام</b> — بدون نیاز به API.<br>
+هر ۱۵ دقیقه یک‌بار آپدیت میشه.
 </p>
 <p align="center">
 <a href="https://github.com/MohammadBahemmat/V2ray-Collector">
-<img src="https://img.shields.io/badge/مخزن-پروژه-blue?style=flat-square&logo=github">
+  <img src="https://img.shields.io/badge/Repo-Star-blue?style=social&logo=github" alt="Repo">
 </a>
-<img src="https://img.shields.io/github/stars/MohammadBahemmat/V2ray-Collector?style=social">
+<img src="https://img.shields.io/github/stars/MohammadBahemmat/V2ray-Collector?style=social" alt="Stars">
 </p>
 </td>
 <td width="50%">
 <h3 align="center">📢 V2ray Update Checker</h3>
 <p align="center">
-بررسی خودکار آپدیت نرم‌افزارهای V2Ray (v2rayN و v2rayNG)
-<br>و اطلاع‌رسانی خودکار در کانال تلگرام.
+بررسی خودکار آپدیت نرم‌افزارهای V2Ray و اطلاع‌رسانی در کانال تلگرام.
 </p>
 <p align="center">
 <a href="https://github.com/MohammadBahemmat/Telegram">
-<img src="https://img.shields.io/badge/مخزن-پروژه-blue?style=flat-square&logo=github">
+  <img src="https://img.shields.io/badge/Repo-Star-blue?style=social&logo=github" alt="Repo">
 </a>
-<img src="https://img.shields.io/github/stars/MohammadBahemmat/Telegram?style=social">
+<img src="https://img.shields.io/github/stars/MohammadBahemmat/Telegram?style=social" alt="Stars">
 </p>
 </td>
 </tr>
@@ -80,19 +79,19 @@
 
 <div align="center">
 
-### 📊 یه نگاه به فعالیتهام
+### 📊 GitHub Stats
 
 <img height="160em" src="https://github-readme-stats.vercel.app/api?username=MohammadBahemmat&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" />
 <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohammadBahemmat&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" />
 
 <br><br>
 
-<img src="https://komarev.com/ghpvc/?username=MohammadBahemmat&color=blueviolet&style=flat-square&label=پروفایل+دیده+شده" alt="Profile views" />
+<img src="https://komarev.com/ghpvc/?username=MohammadBahemmat&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile views" />
 
 <br><br>
 
 <a href="https://t.me/ACV_2ray">
-<img src="https://img.shields.io/badge/تلگرام-ACV__2ray-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
+<img src="https://img.shields.io/badge/Telegram-ACV__2ray-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
 </a>
 
 </div>
