@@ -1,15 +1,13 @@
 <div align="center">
 
-<!-- 🌊 هدر متحرک -->
-<a href="https://git.io/typing-svg">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,20&height=200&section=header&text=Mohammad%20Bahemmat&fontSize=60&fontAlignY=35&desc=ایده%20میدم%20،%20میسازم%20،%20یاد%20میگیرم&descAlignY=55&animation=fadeIn" width="100%"/>
-</a>
+<!-- 🌊 هدر تمام‌عرض -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,20&height=300&section=header&text=Mohammad%20Bahemmat&fontSize=60&fontAlignY=35&desc=ایده%20میدم%20،%20میسازم%20،%20یاد%20میگیرم&descAlignY=55&animation=fadeIn" width="100%"/>
 
 <br>
 
 <!-- ⌨️ تایپ متحرک -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1500&color=58A6FF&center=true&vCenter=true&multiline=false&repeat=true&width=600&height=60&lines=I+build+things+with+logic%2C+not+just+code;Architect+of+ideas%2C+powered+by+curiosity;%D9%85%D8%B3%D8%A6%D9%84%D9%87+%D8%AD%D9%84+%D9%85%DB%8C%DA%A9%D9%86%D9%85+%D8%8C+%DA%A9%D8%AF+%D9%86%D9%85%DB%8C%D8%B2%D9%86%D9%85" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1500&color=58A6FF&center=true&vCenter=true&multiline=false&repeat=true&width=600&height=60&lines=I+build+things+with+logic%2C+not+just+code;Architect+of+ideas%2C+powered+by+curiosity" alt="Typing SVG" />
 </a>
 
 </div>
@@ -36,6 +34,9 @@
 </div>
 
 ---
+
+<!-- ➖ جداکننده موجی -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,20&height=80&section=footer" width="100%"/>
 
 ### 🚀 پروژه‌های شاخص
 
@@ -73,18 +74,16 @@
 
 ---
 
+<div align="center">
+
 ### 📊 نگاهی به فعالیت‌ها
 
-<p align="center">
   <img src="https://img.shields.io/github/stars/MohammadBahemmat/V2ray-Collector?style=flat-square&label=%F0%9F%8C%9F%20Collector%20Stars&color=yellow" alt="Collector Stars">
   <img src="https://img.shields.io/github/stars/MohammadBahemmat/Telegram?style=flat-square&label=%F0%9F%8C%9F%20Telegram%20Stars&color=blue" alt="Telegram Stars">
   <img src="https://img.shields.io/github/last-commit/MohammadBahemmat/V2ray-Collector?style=flat-square&label=%F0%9F%93%85%20Last%20Update&color=green" alt="Last Commit">
   <img src="https://img.shields.io/github/languages/top/MohammadBahemmat/V2ray-Collector?style=flat-square&label=Python&color=blue" alt="Top Language">
-</p>
 
----
-
-<div align="center">
+<br><br>
 
 <img src="https://komarev.com/ghpvc/?username=MohammadBahemmat&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile views" />
 
@@ -95,6 +94,15 @@
 </a>
 
 </div>
+
+---
+
+<!-- 📦 نقل‌قول در کادر رنگی -->
+<table><tr><td bgcolor="#1a1a2e" align="center" width="100%">
+<font color="#ffffff" size="4">
+«هر پروژه‌ای که اینجا می‌بینی، با یه فکر ساده شروع شده. با منطق ساخته شده. و با کمک هوش مصنوعی تموم شده. <br>نه کد بلدم، نه ادعاشو دارم. فقط مسئله حل میکنم.»
+</font>
+</td></tr></table>
 
 ---
 
@@ -109,8 +117,5 @@
 
 ---
 
-<div align="center">
-
-> «هر پروژه‌ای که اینجا می‌بینی، با یه فکر ساده شروع شده. با منطق ساخته شده. و با کمک هوش مصنوعی تموم شده. <br>نه کد بلدم، نه ادعاشو دارم. فقط مسئله حل میکنم.»
-
-</div>
+<!-- 🌊 فوتر تمام‌عرض -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=20,14,12&height=150&section=footer" width="100%"/>
