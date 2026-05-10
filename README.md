@@ -9,7 +9,7 @@
 
 <!-- ⌨️ تایپ متحرک -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1500&color=58A6FF&center=true&vCenter=true&multiline=false&repeat=true&width=600&height=60&lines=%D9%85%D9%87%D9%86%D8%AF%D8%B3%DB%8C+%D9%81%D8%B6%D8%A7%DB%8C%DB%8C+%D9%85%DB%8C%D8%AE%D9%88%D9%86%D9%85%D8%9B+%D8%B0%D9%87%D9%86%DB%8C+%D8%AA%D8%AD%D9%84%DB%8C%D9%84%DA%AF%D8%B1+%D9%88+%D8%B9%D8%A7%D8%B4%D9%82+%D8%AD%D9%84+%D9%85%D8%B3%D8%A6%D9%84%D9%87;I+build+things+with+logic%2C+not+just+code;Architect+of+ideas%2C+powered+by+curiosity" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1500&color=58A6FF&center=true&vCenter=true&multiline=false&repeat=true&width=600&height=60&lines=I+build+things+with+logic%2C+not+just+code;Architect+of+ideas%2C+powered+by+curiosity;%D9%85%D8%B3%D8%A6%D9%84%D9%87+%D8%AD%D9%84+%D9%85%DB%8C%DA%A9%D9%86%D9%85+%D8%8C+%DA%A9%D8%AF+%D9%86%D9%85%DB%8C%D8%B2%D9%86%D9%85" alt="Typing SVG" />
 </a>
 
 </div>
@@ -19,25 +19,19 @@
 <h3 align="center">👋 سلام! من محمدم.</h3>
 
 <p align="center">
-یه چیزی رو از همون اول راستشو بگم: من <b>برنامه‌نویس</b> نیستم. <br>
+راستشو بگم: من <b>برنامه‌نویس</b> نیستم. <br>
 من کسی‌ام که <b>ایده</b> میده، <b>ساختار</b> رو طراحی میکنه، و بعد می‌شینه پای گفتگو با هوش مصنوعی تا ایده رو به <b>واقعیت</b> تبدیل کنه. <br>
 <br>
 <em>مثل یه معمار که نقشه رو می‌کشه و تیم اجرایی می‌سازتش — فقط تیم من، یه مدل زبونیه.</em>
-</p>
-
-<p align="center">
-🎓 <b>مهندسی فضایی</b> می‌خونم، فوق‌لیسانس. <br>
-📸 عکاسی میکنم، چون دیدنِ قشنگ‌ها رو دوست دارم. <br>
-🧠 و مهم‌تر از همه: <b>حل کردن مسئله‌های پیچیده</b> برام از هر چیزی جذاب‌تره.
 </p>
 
 ---
 
 <div align="center">
 
-<img src="https://img.shields.io/badge/Aerospace_Engineering-1E90FF?style=for-the-badge&logo=spacex&logoColor=white" alt="Aerospace">
 <img src="https://img.shields.io/badge/Problem_Solver-8A2BE2?style=for-the-badge&logo=target&logoColor=white" alt="Problem Solver">
 <img src="https://img.shields.io/badge/Idea_to_Product-FF6F00?style=for-the-badge&logo=lightbulb&logoColor=white" alt="Idea to Product">
+<img src="https://img.shields.io/badge/AI_Powered-00BFFF?style=for-the-badge&logo=openai&logoColor=white" alt="AI Powered">
 
 </div>
 
@@ -58,6 +52,7 @@
   <img src="https://img.shields.io/badge/Repo-Star-blue?style=social&logo=github" alt="Repo">
 </a>
 <img src="https://img.shields.io/github/stars/MohammadBahemmat/V2ray-Collector?style=social" alt="Stars">
+<img src="https://img.shields.io/github/forks/MohammadBahemmat/V2ray-Collector?style=social" alt="Forks">
 </p>
 </td>
 <td width="50%">
@@ -70,6 +65,7 @@
   <img src="https://img.shields.io/badge/Repo-Star-blue?style=social&logo=github" alt="Repo">
 </a>
 <img src="https://img.shields.io/github/stars/MohammadBahemmat/Telegram?style=social" alt="Stars">
+<img src="https://img.shields.io/github/forks/MohammadBahemmat/Telegram?style=social" alt="Forks">
 </p>
 </td>
 </tr>
@@ -77,14 +73,18 @@
 
 ---
 
+### 📊 نگاهی به فعالیت‌ها
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/MohammadBahemmat/V2ray-Collector?style=flat-square&label=%F0%9F%8C%9F%20Collector%20Stars&color=yellow" alt="Collector Stars">
+  <img src="https://img.shields.io/github/stars/MohammadBahemmat/Telegram?style=flat-square&label=%F0%9F%8C%9F%20Telegram%20Stars&color=blue" alt="Telegram Stars">
+  <img src="https://img.shields.io/github/last-commit/MohammadBahemmat/V2ray-Collector?style=flat-square&label=%F0%9F%93%85%20Last%20Update&color=green" alt="Last Commit">
+  <img src="https://img.shields.io/github/languages/top/MohammadBahemmat/V2ray-Collector?style=flat-square&label=Python&color=blue" alt="Top Language">
+</p>
+
+---
+
 <div align="center">
-
-### 📊 GitHub Stats
-
-<img height="160em" src="https://github-readme-stats.vercel.app/api?username=MohammadBahemmat&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" />
-<img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MohammadBahemmat&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" />
-
-<br><br>
 
 <img src="https://komarev.com/ghpvc/?username=MohammadBahemmat&color=blueviolet&style=flat-square&label=Profile+Views" alt="Profile views" />
 
