@@ -1,0 +1,146 @@
+name: Generate Profile Assets
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # هر ۱۲ ساعت (هم برای snake و هم metrics)
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ۱. تولید snake SVGs
+      - name: Generate Snake SVGs
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+
+      # ۲. تولید metrics.svg با Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Generate Metrics SVG
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+        run: |
+          python3 << 'EOF'
+          import requests, os, json
+          from datetime import datetime, timezone
+
+          token = os.environ["GITHUB_TOKEN"]
+          username = os.environ["USERNAME"]
+          headers = {"Authorization": f"token {token}", "Accept": "application/vnd.github.v3+json"}
+
+          user = requests.get(f"https://api.github.com/users/{username}", headers=headers).json()
+          repos_url = f"https://api.github.com/users/{username}/repos?per_page=100&sort=pushed"
+          repos = requests.get(repos_url, headers=headers).json()
+
+          total_stars = sum(r["stargazers_count"] for r in repos)
+          total_forks = sum(r["forks_count"] for r in repos)
+          total_repos = len(repos)
+          followers = user["followers"]
+
+          lang_map = {}
+          for r in repos:
+              lang = r.get("language")
+              if lang:
+                  lang_map[lang] = lang_map.get(lang, 0) + 1
+          top_langs = sorted(lang_map.items(), key=lambda x: x[1], reverse=True)[:4]
+          lang_text = "  ".join([f"{l} ({c})" for l, c in top_langs]) if top_langs else "N/A"
+
+          events = requests.get(f"https://api.github.com/users/{username}/events/public?per_page=100", headers=headers).json()
+          push_events = [e for e in events if e["type"] == "PushEvent"]
+          recent_commits = sum(len(e["payload"].get("commits", [])) for e in push_events)
+
+          svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="900" height="340" viewBox="0 0 900 340">
+          <defs>
+            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+            </linearGradient>
+            <style>
+              text {{ font-family: 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }}
+              .title {{ font-size: 20px; font-weight: bold; fill: #58a6ff; }}
+              .value {{ font-size: 22px; font-weight: bold; fill: #f0f6fc; }}
+              .label {{ font-size: 13px; fill: #8b949e; }}
+            </style>
+          </defs>
+          <rect width="100%" height="100%" rx="12" fill="url(#bg)" />
+          <text x="30" y="45" class="title">📊 GitHub Stats</text>
+          <text x="30" y="70" class="label">@{username}</text>
+
+          <!-- Cards -->
+          <rect x="30" y="95" width="190" height="70" rx="10" fill="#1f6feb22" stroke="#1f6feb" stroke-width="1.5"/>
+          <text x="45" y="125" class="value">{total_stars}</text>
+          <text x="45" y="150" class="label">Total Stars</text>
+
+          <rect x="240" y="95" width="190" height="70" rx="10" fill="#1f6feb22" stroke="#1f6feb" stroke-width="1.5"/>
+          <text x="255" y="125" class="value">{total_forks}</text>
+          <text x="255" y="150" class="label">Total Forks</text>
+
+          <rect x="450" y="95" width="190" height="70" rx="10" fill="#1f6feb22" stroke="#1f6feb" stroke-width="1.5"/>
+          <text x="465" y="125" class="value">{total_repos}</text>
+          <text x="465" y="150" class="label">Public Repos</text>
+
+          <rect x="660" y="95" width="190" height="70" rx="10" fill="#1f6feb22" stroke="#1f6feb" stroke-width="1.5"/>
+          <text x="675" y="125" class="value">{followers}</text>
+          <text x="675" y="150" class="label">Followers</text>
+
+          <rect x="30" y="185" width="270" height="70" rx="10" fill="#2ea04322" stroke="#2ea043" stroke-width="1.5"/>
+          <text x="45" y="215" class="value">{recent_commits}</text>
+          <text x="45" y="240" class="label">Recent Commits (last 100 events)</text>
+
+          <rect x="320" y="185" width="530" height="70" rx="10" fill="#2ea04322" stroke="#2ea043" stroke-width="1.5"/>
+          <text x="335" y="215" class="value" font-size="16">{lang_text}</text>
+          <text x="335" y="240" class="label">Top Languages (by repo count)</text>
+
+          <text x="30" y="300" class="label" font-size="11">⚡ Updated: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} • via GitHub Actions</text>
+          </svg>"""
+
+          with open("metrics.svg", "w", encoding="utf-8") as f:
+              f.write(svg)
+          print("metrics.svg generated")
+          EOF
+
+      # ۳. همه فایل‌ها را به شاخه output بفرست (بدون پاک کردن فایل‌های قبلی)
+      - name: Commit and Push to output branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # به شاخه output سوئیچ کن، اگر وجود نداشت با orphan بساز
+          git fetch origin output 2>/dev/null || true
+          git checkout output 2>/dev/null || git checkout --orphan output
+          # اگر orphan بود و commit ای ندارد، یک commit خالی اولیه لازم است
+          if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
+            git commit --allow-empty -m "Init output branch"
+          fi
+          # محتوای قبلی را پاک نکن! فقط فایل‌های جدید را اضافه کن
+          rm -rf dist  # پاک کردن موقت پوشه dist (قبلی از snake)
+          # کپی فایل‌های snake از dist (که توسط Platane ساخته شد)
+          cp dist/github-snake.svg github-snake.svg 2>/dev/null || true
+          cp dist/github-snake-dark.svg github-snake-dark.svg 2>/dev/null || true
+          # فایل metrics.svg که در مرحله قبل ساخته شد در ریشه workspace است
+          cp metrics.svg metrics.svg 2>/dev/null || true
+          # فقط فایل‌های مورد نظر را stage کن
+          git add github-snake.svg github-snake-dark.svg metrics.svg
+          git commit -m "Update assets (snake + metrics) [skip ci]" || echo "No changes to commit"
+          git push origin output --force
