@@ -2,7 +2,7 @@ name: Generate Profile Assets
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # هر ۱۲ ساعت (هم برای snake و هم metrics)
+    - cron: "0 */12 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -28,7 +28,14 @@ jobs:
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
 
-      # ۲. تولید metrics.svg با Python
+      # ۲. فایل‌های snake را به جای امن (/tmp) منتقل کن
+      - name: Backup snake files
+        run: |
+          mkdir -p /tmp/assets
+          cp dist/github-snake.svg /tmp/assets/github-snake.svg
+          cp dist/github-snake-dark.svg /tmp/assets/github-snake-dark.svg
+
+      # ۳. تولید metrics.svg با Python
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -88,7 +95,6 @@ jobs:
           <text x="30" y="45" class="title">📊 GitHub Stats</text>
           <text x="30" y="70" class="label">@{username}</text>
 
-          <!-- Cards -->
           <rect x="30" y="95" width="190" height="70" rx="10" fill="#1f6feb22" stroke="#1f6feb" stroke-width="1.5"/>
           <text x="45" y="125" class="value">{total_stars}</text>
           <text x="45" y="150" class="label">Total Stars</text>
@@ -121,26 +127,25 @@ jobs:
           print("metrics.svg generated")
           EOF
 
-      # ۳. همه فایل‌ها را به شاخه output بفرست (بدون پاک کردن فایل‌های قبلی)
-      - name: Commit and Push to output branch
+      # ۴. metrics.svg را نیز به /tmp منتقل کن
+      - name: Backup metrics file
+        run: cp metrics.svg /tmp/assets/metrics.svg
+
+      # ۵. حالا به شاخه output برو و همه دارایی‌ها را از /tmp برگردان
+      - name: Deploy all assets to output branch
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          # به شاخه output سوئیچ کن، اگر وجود نداشت با orphan بساز
           git fetch origin output 2>/dev/null || true
           git checkout output 2>/dev/null || git checkout --orphan output
-          # اگر orphan بود و commit ای ندارد، یک commit خالی اولیه لازم است
+          # اگر orphan بود و commit ای ندارد، یک commit خالی اولیه بساز
           if ! git rev-parse --verify HEAD >/dev/null 2>&1; then
             git commit --allow-empty -m "Init output branch"
           fi
-          # محتوای قبلی را پاک نکن! فقط فایل‌های جدید را اضافه کن
-          rm -rf dist  # پاک کردن موقت پوشه dist (قبلی از snake)
-          # کپی فایل‌های snake از dist (که توسط Platane ساخته شد)
-          cp dist/github-snake.svg github-snake.svg 2>/dev/null || true
-          cp dist/github-snake-dark.svg github-snake-dark.svg 2>/dev/null || true
-          # فایل metrics.svg که در مرحله قبل ساخته شد در ریشه workspace است
-          cp metrics.svg metrics.svg 2>/dev/null || true
-          # فقط فایل‌های مورد نظر را stage کن
+          # کپی فایل‌ها از /tmp (ایمن از تعویض شاخه)
+          cp /tmp/assets/github-snake.svg github-snake.svg
+          cp /tmp/assets/github-snake-dark.svg github-snake-dark.svg
+          cp /tmp/assets/metrics.svg metrics.svg
           git add github-snake.svg github-snake-dark.svg metrics.svg
           git commit -m "Update assets (snake + metrics) [skip ci]" || echo "No changes to commit"
           git push origin output --force
