@@ -1,7 +1,7 @@
 name: Metrics
 on:
   schedule:
-    - cron: "0 */8 * * *"   # هر ۸ ساعت
+    - cron: "0 */8 * * *"
   workflow_dispatch:
   push:
     branches:
@@ -19,10 +19,11 @@ jobs:
           fetch-depth: 0
 
       - name: Generate GitHub Metrics
-        id: metrics   # ⬅️ حتماً id داشته باشد تا به خروجی‌ها دسترسی پیدا کنیم
-        uses: lowlighter/metrics@latest
+        id: metrics
+        uses: lowlighter/metrics@v3.34   # 🟢 نسخه ثابت (مهم)
         with:
           token: ${{ secrets.METRICS_TOKEN }}
+          use_prebuilt_image: master       # 🟢 استفاده از ایمیج آماده
           output_action: none
           committer_message: "Update metrics [skip ci]"
           user: MohammadBahemmat
@@ -62,7 +63,6 @@ jobs:
           filename: metrics.svg
           config_output: svg
 
-      # ⬇️ مرحله جدید: ذخیره کردن SVG خروجی در یک فایل
       - name: Save metrics SVG to file
         run: echo "${{ steps.metrics.outputs.svg }}" > metrics.svg
 
